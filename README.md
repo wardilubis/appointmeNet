@@ -13,7 +13,7 @@ A minimal .NET Web API for managing appointments with PostgreSQL database suppor
 ## Prerequisites
 
 - .NET 9.0 SDK or later
-- PostgreSQL database server
+- PostgreSQL database server (or Docker to run PostgreSQL)
 
 ## Getting Started
 
@@ -24,9 +24,19 @@ git clone https://github.com/wardilubis/appointmeNet.git
 cd appointmeNet
 ```
 
-### 2. Configure Database Connection
+### 2. Start PostgreSQL Database (using Docker)
 
-Update the connection string in `AppointmentApi/appsettings.json`:
+The easiest way to get started is using Docker Compose:
+
+```bash
+docker-compose up -d
+```
+
+This will start a PostgreSQL container with the default configuration. If you prefer to use your own PostgreSQL installation, skip this step and update the connection string accordingly.
+
+### 3. Configure Database Connection (Optional)
+
+The default connection string in `AppointmentApi/appsettings.json` is configured for the Docker setup:
 
 ```json
 {
@@ -36,7 +46,9 @@ Update the connection string in `AppointmentApi/appsettings.json`:
 }
 ```
 
-### 3. Run the Application
+Update this if you're using a different PostgreSQL setup.
+
+### 4. Run the Application
 
 ```bash
 cd AppointmentApi
@@ -44,13 +56,13 @@ dotnet run
 ```
 
 The API will be available at:
-- HTTPS: `https://localhost:7000`
-- HTTP: `http://localhost:5000`
+- HTTPS: `https://localhost:7257`
+- HTTP: `http://localhost:5164`
 
-### 4. Access API Documentation
+### 5. Access API Documentation
 
 Open your browser and navigate to:
-- OpenAPI endpoint: `https://localhost:7000/openapi/v1.json`
+- OpenAPI endpoint: `https://localhost:7257/openapi/v1.json`
 
 ## API Endpoints
 

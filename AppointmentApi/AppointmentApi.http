@@ -1,0 +1,51 @@
+@AppointmentApi_HostAddress = http://localhost:5164
+
+### Get all appointments
+GET {{AppointmentApi_HostAddress}}/api/appointments
+Accept: application/json
+
+###
+
+### Get appointment by id
+GET {{AppointmentApi_HostAddress}}/api/appointments/1
+Accept: application/json
+
+###
+
+### Create new appointment
+POST {{AppointmentApi_HostAddress}}/api/appointments
+Content-Type: application/json
+
+{
+  "title": "Team Meeting",
+  "description": "Weekly team sync meeting",
+  "startTime": "2024-10-15T10:00:00Z",
+  "endTime": "2024-10-15T11:00:00Z",
+  "location": "Conference Room A",
+  "attendeeEmail": "team@example.com",
+  "status": "Scheduled"
+}
+
+###
+
+### Update appointment
+PUT {{AppointmentApi_HostAddress}}/api/appointments/1
+Content-Type: application/json
+
+{
+  "title": "Team Meeting - Updated",
+  "description": "Weekly team sync meeting - Updated agenda",
+  "startTime": "2024-10-15T14:00:00Z",
+  "endTime": "2024-10-15T15:00:00Z",
+  "location": "Conference Room B",
+  "attendeeEmail": "team@example.com",
+  "status": "Confirmed"
+}
+
+###
+
+### Delete appointment
+DELETE {{AppointmentApi_HostAddress}}/api/appointments/1
+
+###
+
